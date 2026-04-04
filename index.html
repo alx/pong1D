@@ -12,6 +12,7 @@
   gtag('js', new Date());
   gtag('config', 'G-M1BPH1LQ47');
 </script>
+<script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -103,6 +104,34 @@
   .btn:hover { background: #fff; color: #000; }
   .btn.primary { background: #fff; color: #000; }
   .btn.primary:hover { background: transparent; color: #fff; }
+
+  /* SUBSCRIBE */
+  .subscribe {
+    max-width: 600px;
+    margin: 60px auto 0;
+    padding: 0 24px;
+    text-align: center;
+  }
+
+  .subscribe h2 {
+    font-size: clamp(0.7rem, 3vw, 0.9rem);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .subscribe p {
+    font-size: clamp(0.42rem, 2vw, 0.5rem);
+    color: #666;
+    margin-bottom: 24px;
+    line-height: 2;
+    letter-spacing: 0.05em;
+  }
+
+  .subscribe iframe {
+    filter: invert(1) hue-rotate(180deg);
+    max-width: 100%;
+  }
 
   /* HOW TO PLAY */
   .rules {
@@ -399,8 +428,15 @@
   <h1>PONG 1D</h1>
   <p class="subtitle">1D LED Ping Pong — Luminous table game powered by LEDs</p>
   <div class="cta-buttons">
-    <a href="https://fauxdepart.com/?ds-gallery=pong1d" target="_blank" class="btn primary">📸 Full Gallery</a>
+    <a href="#subscribe" class="btn primary">✉️ Get Updates</a>
   </div>
+</div>
+
+<!-- SUBSCRIBE -->
+<div class="subscribe" id="subscribe">
+  <h2>// Stay in the loop</h2>
+  <p>Get notified about events, new game modes and builds.</p>
+  <iframe src="https://subscribe-forms.beehiiv.com/eba6e665-a510-43a8-8614-0d3de011ba4c" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width:560px;height:206px;margin:0;border-radius:0!important;background-color:transparent;box-shadow:0 0 #0000;max-width:100%;"></iframe>
 </div>
 
 <!-- HOW TO PLAY -->
@@ -628,5 +664,6 @@
     if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
   });
 </script>
+<script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
 </body>
 </html>
