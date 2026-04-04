@@ -51,7 +51,7 @@
     padding: 4px 6px;
     font-family: 'Press Start 2P', monospace;
     font-size: 0.3rem;
-    color: #888;
+    color: #cccccc;
     letter-spacing: 0.05em;
   }
 
@@ -191,7 +191,7 @@
 
   .subtitle {
     font-size: clamp(0.55rem, 2vw, 0.75rem);
-    color: #aaa;
+    color: #cccccc;
     letter-spacing: 0.15em;
     margin-bottom: 36px;
     text-transform: uppercase;
@@ -205,9 +205,10 @@
   }
 
   .rules h2 {
-    font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    font-size: 35px;
+    color: #ffffff;
     letter-spacing: 0.1em;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #ffffff;
     padding-bottom: 12px;
     margin-bottom: 32px;
     text-transform: uppercase;
@@ -230,9 +231,9 @@
   .rules-step:last-child { border-bottom: none; }
 
   .step-num {
-    font-size: clamp(0.55rem, 2.5vw, 0.65rem);
-    color: #444;
-    min-width: 32px;
+    font-size: 22px;
+    color: #cccccc;
+    min-width: 48px;
     padding-top: 3px;
     flex-shrink: 0;
   }
@@ -240,8 +241,8 @@
   .step-body { flex: 1; }
 
   .step-title {
-    font-size: clamp(0.75rem, 3.5vw, 0.95rem);
-    color: #fff;
+    font-size: 35px;
+    color: #ffffff;
     letter-spacing: 0.06em;
     margin-bottom: 10px;
     display: block;
@@ -249,8 +250,8 @@
   }
 
   .step-desc {
-    font-size: clamp(0.6rem, 2.5vw, 0.75rem);
-    color: #999;
+    font-size: 22px;
+    color: #cccccc;
     line-height: 2.2;
   }
 
@@ -267,35 +268,36 @@
   @media(max-width:640px){ .about { grid-template-columns: 1fr; } }
 
   .about h2 {
-    font-size: 0.75rem;
+    font-size: 35px;
+    color: #ffffff;
     letter-spacing: 0.1em;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #ffffff;
     padding-bottom: 10px;
     margin-bottom: 20px;
     text-transform: uppercase;
   }
 
   .about p {
-    font-size: 0.65rem;
-    color: #ccc;
+    font-size: 22px;
+    color: #cccccc;
     line-height: 2;
     margin-bottom: 14px;
   }
 
   .specs-list {
     list-style: none;
-    font-size: 0.6rem;
-    color: #ccc;
+    font-size: 22px;
+    color: #cccccc;
   }
   .specs-list li {
     padding: 8px 0;
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid #333;
     display: flex;
     justify-content: space-between;
     gap: 10px;
   }
-  .specs-list li span:first-child { color: #888; }
-  .specs-list li span:last-child { text-align: right; }
+  .specs-list li span:first-child { color: #cccccc; }
+  .specs-list li span:last-child { text-align: right; color: #ffffff; }
 
   /* GALLERY */
   .gallery-section {
@@ -306,10 +308,10 @@
 
   .section-title {
     text-align: center;
-    font-size: 0.75rem;
+    font-size: 35px;
     letter-spacing: 0.15em;
     margin-bottom: 40px;
-    color: #fff;
+    color: #ffffff;
     text-transform: uppercase;
   }
 
@@ -418,7 +420,8 @@
   }
 
   .contact h2 {
-    font-size: 1rem;
+    font-size: 35px;
+    color: #ffffff;
     margin-bottom: 32px;
     letter-spacing: 0.1em;
   }
@@ -432,18 +435,18 @@
   }
 
   .contact-item {
-    font-size: 0.65rem;
-    color: #aaa;
+    font-size: 22px;
+    color: #cccccc;
     text-align: center;
   }
   .contact-item .label {
     display: block;
-    color: #555;
+    color: #cccccc;
     margin-bottom: 8px;
-    font-size: 0.4rem;
+    font-size: 18px;
     letter-spacing: 0.15em;
   }
-  .contact-item a { color: #fff; text-decoration: none; }
+  .contact-item a { color: #ffffff; text-decoration: none; }
   .contact-item a:hover { text-decoration: underline; }
 
   .qr-area {
@@ -451,19 +454,19 @@
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    border: 2px dashed #333;
+    border: 2px dashed #555;
     padding: 20px;
     margin: 0 auto 40px;
   }
   .qr-area img {
-    width: 120px;
-    height: 120px;
+    width: 160px;
+    height: 160px;
     filter: invert(1);
     image-rendering: pixelated;
   }
   .qr-area p {
-    font-size: 0.4rem;
-    color: #666;
+    font-size: 18px;
+    color: #cccccc;
     letter-spacing: 0.1em;
   }
 
