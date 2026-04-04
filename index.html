@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,6 @@
   gtag('js', new Date());
   gtag('config', 'G-M1BPH1LQ47');
 </script>
-<script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,6 +22,62 @@
     font-family: 'Press Start 2P', 'Courier New', monospace;
     line-height: 1.6;
   }
+
+  /* LANG SELECTOR */
+  .lang-selector {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 999;
+    display: flex;
+    gap: 8px;
+    background: rgba(0,0,0,0.85);
+    border: 1px solid #333;
+    padding: 8px 12px;
+    align-items: center;
+  }
+
+  .lang-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+    opacity: 0.45;
+    transition: opacity 0.15s;
+    background: none;
+    border: none;
+    padding: 4px 6px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.3rem;
+    color: #888;
+    letter-spacing: 0.05em;
+  }
+
+  .lang-btn:hover { opacity: 0.8; }
+  .lang-btn.active { opacity: 1; color: #fff; }
+  .lang-btn.active .flag-wrap { outline: 1px solid #fff; }
+
+  .flag-wrap {
+    width: 28px;
+    height: 18px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .flag-rev-es {
+    width: 28px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+  .flag-rev-es .s1 { flex:1; background:#c60b1e; }
+  .flag-rev-es .s2 { flex:1; background:#ffc400; }
+  .flag-rev-es .s3 { flex:1; background:#6a0dad; }
 
   /* HERO */
   .hero {
@@ -80,58 +135,6 @@
     text-transform: uppercase;
   }
 
-  .cta-buttons {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 14px 24px;
-    font-family: 'Press Start 2P', monospace;
-    font-size: 0.6rem;
-    text-decoration: none;
-    border: 2px solid #fff;
-    color: #fff;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.1s;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-  .btn:hover { background: #fff; color: #000; }
-  .btn.primary { background: #fff; color: #000; }
-  .btn.primary:hover { background: transparent; color: #fff; }
-
-  /* SUBSCRIBE */
-  .subscribe {
-    max-width: 860px;
-    margin: 60px auto 0;
-    padding: 0 24px;
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
-
-  .subscribe h2 {
-    font-size: clamp(0.6rem, 2.5vw, 0.75rem);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .subscribe iframe {
-    flex: 1;
-    min-width: 260px;
-    max-width: 100%;
-    position: relative;
-    top: 42px;
-  }
-
   /* HOW TO PLAY */
   .rules {
     max-width: 860px;
@@ -172,9 +175,7 @@
     flex-shrink: 0;
   }
 
-  .step-body {
-    flex: 1;
-  }
+  .step-body { flex: 1; }
 
   .step-title {
     font-size: clamp(0.6rem, 3vw, 0.75rem);
@@ -383,7 +384,6 @@
   .contact-item a { color: #fff; text-decoration: none; }
   .contact-item a:hover { text-decoration: underline; }
 
-  /* QR placeholder */
   .qr-area {
     display: inline-flex;
     flex-direction: column;
@@ -418,6 +418,28 @@
 </head>
 <body>
 
+<!-- LANGUAGE SELECTOR -->
+<div class="lang-selector">
+  <button class="lang-btn active" data-lang="TH" onclick="setLang('TH')">
+    <div class="flag-wrap">🇹🇭</div>
+    TH
+  </button>
+  <button class="lang-btn" data-lang="EN" onclick="setLang('EN')">
+    <div class="flag-wrap">🇬🇧</div>
+    EN
+  </button>
+  <button class="lang-btn" data-lang="ES" onclick="setLang('ES')">
+    <div class="flag-wrap">
+      <div class="flag-rev-es"><div class="s1"></div><div class="s2"></div><div class="s3"></div></div>
+    </div>
+    ES
+  </button>
+  <button class="lang-btn" data-lang="FR" onclick="setLang('FR')">
+    <div class="flag-wrap">🇫🇷</div>
+    FR
+  </button>
+</div>
+
 <!-- HERO -->
 <div class="hero">
   <div class="pixel-bar">
@@ -426,66 +448,58 @@
   </div>
   <h1>PONG 1D</h1>
   <p class="subtitle">1D LED Ping Pong — Luminous table game powered by LEDs</p>
-  <div class="cta-buttons">
-  </div>
-</div>
-
-<!-- SUBSCRIBE -->
-<div class="subscribe" id="subscribe">
-  <h2>// Stay in the loop</h2>
-  <iframe src="https://subscribe-forms.beehiiv.com/eba6e665-a510-43a8-8614-0d3de011ba4c" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width:560px;padding:0 40px;margin:0;border-radius:0!important;background-color:transparent;box-shadow:0 0 #0000;max-width:100%;"></iframe>
 </div>
 
 <!-- HOW TO PLAY -->
 <div class="rules">
-  <h2>// How to Play</h2>
+  <h2 data-i18n="how-to-play">// วิธีการเล่น</h2>
   <div class="rules-steps">
 
     <div class="rules-step">
       <span class="step-num">01</span>
       <div class="step-body">
-        <span class="step-title">🕹️ Stand at your end</span>
-        <span class="step-desc">Each player takes a position at one end of the LED strip. Your button is right in front of you.</span>
+        <span class="step-title" data-i18n="step1-title">🕹️ ยืนที่ฝั่งของคุณ</span>
+        <span class="step-desc" data-i18n="step1-desc">ผู้เล่นแต่ละคนยืนอยู่ที่ปลายแถบ LED ปุ่มของคุณอยู่ตรงหน้า</span>
       </div>
     </div>
 
     <div class="rules-step">
       <span class="step-num">02</span>
       <div class="step-body">
-        <span class="step-title">💡 Watch the light ball</span>
-        <span class="step-desc">A white light travels along the strip from one player to the other — that's the ball.</span>
+        <span class="step-title" data-i18n="step2-title">💡 จับตาดูลูกบอลแสง</span>
+        <span class="step-desc" data-i18n="step2-desc">แสงสีขาวเดินทางตามแถบ LED จากผู้เล่นหนึ่งไปยังอีกคน — นั่นคือลูกบอล</span>
       </div>
     </div>
 
     <div class="rules-step">
       <span class="step-num">03</span>
       <div class="step-body">
-        <span class="step-title">👆 Press when it reaches you</span>
-        <span class="step-desc">Hit your button exactly when the ball arrives at your end of the strip to return it.</span>
+        <span class="step-title" data-i18n="step3-title">👆 กดเมื่อถึงฝั่งคุณ</span>
+        <span class="step-desc" data-i18n="step3-desc">กดปุ่มของคุณตอนที่ลูกบอลมาถึงฝั่งคุณเพื่อตีกลับ</span>
       </div>
     </div>
 
     <div class="rules-step">
       <span class="step-num">04</span>
       <div class="step-body">
-        <span class="step-title">⏱️ Timing is everything</span>
-        <span class="step-desc">Press too early or too late and the opponent scores a point.</span>
+        <span class="step-title" data-i18n="step4-title">⏱️ จังหวะคือทุกสิ่ง</span>
+        <span class="step-desc" data-i18n="step4-desc">กดเร็วหรือช้าเกินไปและคู่ต่อสู้จะได้คะแนน</span>
       </div>
     </div>
 
     <div class="rules-step">
       <span class="step-num">05</span>
       <div class="step-body">
-        <span class="step-title">⚡ Power-up — super speed</span>
-        <span class="step-desc">Press your button when the light is right next to it to trigger a speed bonus — the ball rockets to the other side!</span>
+        <span class="step-title" data-i18n="step5-title">⚡ พลังพิเศษ — ความเร็วสูงสุด</span>
+        <span class="step-desc" data-i18n="step5-desc">กดปุ่มของคุณเมื่อแสงอยู่ติดกับปุ่มเพื่อทริกเกอร์โบนัสความเร็ว — ลูกบอลพุ่งไปอีกฝั่ง!</span>
       </div>
     </div>
 
     <div class="rules-step">
       <span class="step-num">06</span>
       <div class="step-body">
-        <span class="step-title">🏆 First to 5 wins</span>
-        <span class="step-desc">Score 5 points to win the match. The strip lights up in your color for a victory animation.</span>
+        <span class="step-title" data-i18n="step6-title">🏆 คนแรกที่ได้ 5 คะแนนชนะ</span>
+        <span class="step-desc" data-i18n="step6-desc">ทำคะแนนได้ 5 แต้มเพื่อชนะแมตช์ แถบ LED จะสว่างเป็นสีของคุณเพื่อแสดงชัยชนะ</span>
       </div>
     </div>
 
@@ -495,30 +509,30 @@
 <!-- ABOUT -->
 <div class="about">
   <div>
-    <h2>// About</h2>
-    <p>Pong 1D reinvents the classic Pong game in a single dimension — a strip of LEDs replaces the screen. Players control a physical paddle along the strip, sending a light "ball" back and forth at increasing speed.</p>
-    <p>Built for events, hackathons, and maker fairs, Pong 1D supports 2 to 4 players simultaneously. The game is open-source and can be assembled with common components.</p>
-    <p>Featured on <a href="https://fauxdepart.com/?ds-gallery=pong1d" target="_blank" style="color:#fff">fauxdepart.com</a> — see the full project gallery and documentation.</p>
+    <h2 data-i18n="about-title">// เกี่ยวกับ</h2>
+    <p data-i18n="about-p1">Pong 1D นำเกม Pong คลาสสิกมาสร้างสรรค์ใหม่ในมิติเดียว — แถบ LED แทนที่หน้าจอ ผู้เล่นควบคุมแป้นตีตามแถบ ส่งลูกบอลแสงไปมาด้วยความเร็วที่เพิ่มขึ้น</p>
+    <p data-i18n="about-p2">ออกแบบสำหรับงานอีเว้นท์ แฮกกาธอน และงาน Maker Fair รองรับผู้เล่น 2-4 คนพร้อมกัน เกมเป็น Open Source และสามารถประกอบได้จากชิ้นส่วนทั่วไป</p>
+    <p data-i18n="about-p3">แสดงบน <a href="https://fauxdepart.com/?ds-gallery=pong1d" target="_blank" style="color:#fff">fauxdepart.com</a> — ดูแกลเลอรีและเอกสารโครงการฉบับเต็ม</p>
   </div>
   <div>
-    <h2>// Specs</h2>
+    <h2 data-i18n="specs-title">// สเปค</h2>
     <ul class="specs-list">
-      <li><span>Players</span><span>2 — 4</span></li>
-      <li><span>Display</span><span>LED Strip (WS2812B)</span></li>
-      <li><span>Controller</span><span>Arduino / ESP32</span></li>
-      <li><span>Length</span><span>1 — 3 meters</span></li>
-      <li><span>Input</span><span>Push buttons / analog</span></li>
-      <li><span>Power</span><span>5V USB / DC</span></li>
-      <li><span>Mode</span><span>2P / 4P / Solo</span></li>
-      <li><span>Open Source</span><span>Yes ✓</span></li>
-      <li><span>Contact</span><span>+66 811 640 400</span></li>
+      <li><span data-i18n="spec-players">ผู้เล่น</span><span>2 — 4</span></li>
+      <li><span data-i18n="spec-display">จอแสดงผล</span><span>LED Strip (WS2812B)</span></li>
+      <li><span data-i18n="spec-controller">ตัวควบคุม</span><span>Arduino / ESP32</span></li>
+      <li><span data-i18n="spec-length">ความยาว</span><span>1 — 3 meters</span></li>
+      <li><span data-i18n="spec-input">ปุ่มควบคุม</span><span>Push buttons / analog</span></li>
+      <li><span data-i18n="spec-power">พลังงาน</span><span>5V USB / DC</span></li>
+      <li><span data-i18n="spec-mode">โหมด</span><span>2P / 4P / Solo</span></li>
+      <li><span data-i18n="spec-oss">โอเพ่นซอร์ส</span><span>Yes ✓</span></li>
+      <li><span data-i18n="spec-contact">ติดต่อ</span><span>+66 811 640 400</span></li>
     </ul>
   </div>
 </div>
 
 <!-- GALLERY -->
 <div class="gallery-section">
-  <p class="section-title">// Photo Gallery</p>
+  <p class="section-title" data-i18n="gallery-title">// แกลเลอรีภาพ</p>
   <div class="gallery-grid" id="galleryGrid">
     <div class="gallery-item" data-src="http://fauxdepart.com/wp-content/uploads/2023/05/IMG_6652.jpg" data-idx="0">
       <img src="http://fauxdepart.com/wp-content/uploads/2023/05/IMG_6652.jpg" alt="Pong 1D" loading="lazy">
@@ -574,11 +588,11 @@
     </div>
     <div class="gallery-item" data-src="http://fauxdepart.com/wp-content/uploads/2015/11/Pong1D-4-joueurs.jpg" data-idx="13">
       <img src="http://fauxdepart.com/wp-content/uploads/2015/11/Pong1D-4-joueurs.jpg" alt="Pong 1D 4 players" loading="lazy">
-      <div class="overlay"><span>4 players mode</span></div>
+      <div class="overlay"><span data-i18n="gallery-4p">โหมด 4 ผู้เล่น</span></div>
     </div>
     <div class="gallery-item" data-src="http://fauxdepart.com/wp-content/uploads/2015/11/Pong1D-2-joueurs.jpg" data-idx="14">
       <img src="http://fauxdepart.com/wp-content/uploads/2015/11/Pong1D-2-joueurs.jpg" alt="Pong 1D 2 players" loading="lazy">
-      <div class="overlay"><span>2 players mode</span></div>
+      <div class="overlay"><span data-i18n="gallery-2p">โหมด 2 ผู้เล่น</span></div>
     </div>
     <div class="gallery-item" data-src="http://fauxdepart.com/wp-content/uploads/2015/11/P1030283.jpg" data-idx="15">
       <img src="http://fauxdepart.com/wp-content/uploads/2015/11/P1030283.jpg" alt="Pong 1D" loading="lazy">
@@ -589,38 +603,214 @@
 
 <!-- CONTACT -->
 <div class="contact">
-  <h2>// Play with us</h2>
+  <h2 data-i18n="contact-title">// เล่นกับเรา</h2>
   <div class="qr-area">
     <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Falx.github.io%2Fpong1D%2F&bgcolor=000000&color=ffffff" alt="QR Code">
-    <p>scan to share</p>
+    <p data-i18n="qr-scan">สแกนเพื่อแชร์</p>
   </div>
   <div class="contact-grid">
     <div class="contact-item">
-      <span class="label">// WEBSITE</span>
+      <span class="label" data-i18n="label-website">// เว็บไซต์</span>
       <a href="https://alx.github.io/pong1D/">alx.github.io/pong1D</a>
     </div>
     <div class="contact-item">
-      <span class="label">// WHATSAPP</span>
+      <span class="label" data-i18n="label-whatsapp">// วอทส์แอพ</span>
       <a href="https://wa.me/66811640400">+66 811 640 400</a>
     </div>
     <div class="contact-item">
-      <span class="label">// GALLERY</span>
+      <span class="label" data-i18n="label-gallery">// แกลเลอรี</span>
       <a href="https://fauxdepart.com/?ds-gallery=pong1d" target="_blank">fauxdepart.com</a>
     </div>
   </div>
 </div>
 
-<footer>PONG 1D — OPEN SOURCE LED GAME — alx.github.io/pong1D</footer>
+<footer data-i18n="footer">PONG 1D — เกม LED โอเพ่นซอร์ส — alx.github.io/pong1D</footer>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
-  <span class="lightbox-close" id="lbClose">✕ CLOSE</span>
+  <span class="lightbox-close" id="lbClose" data-i18n="lb-close">✕ ปิด</span>
   <span class="lightbox-nav lightbox-prev" id="lbPrev">◀</span>
   <img src="" alt="" id="lbImg">
   <span class="lightbox-nav lightbox-next" id="lbNext">▶</span>
 </div>
 
 <script>
+  /* ===== I18N TRANSLATIONS ===== */
+  const translations = {
+    TH: {
+      'how-to-play':  '// วิธีการเล่น',
+      'step1-title':  '🕹️ ยืนที่ฝั่งของคุณ',
+      'step1-desc':   'ผู้เล่นแต่ละคนยืนอยู่ที่ปลายแถบ LED ปุ่มของคุณอยู่ตรงหน้า',
+      'step2-title':  '💡 จับตาดูลูกบอลแสง',
+      'step2-desc':   'แสงสีขาวเดินทางตามแถบ LED จากผู้เล่นหนึ่งไปยังอีกคน — นั่นคือลูกบอล',
+      'step3-title':  '👆 กดเมื่อถึงฝั่งคุณ',
+      'step3-desc':   'กดปุ่มของคุณตอนที่ลูกบอลมาถึงฝั่งคุณเพื่อตีกลับ',
+      'step4-title':  '⏱️ จังหวะคือทุกสิ่ง',
+      'step4-desc':   'กดเร็วหรือช้าเกินไปและคู่ต่อสู้จะได้คะแนน',
+      'step5-title':  '⚡ พลังพิเศษ — ความเร็วสูงสุด',
+      'step5-desc':   'กดปุ่มของคุณเมื่อแสงอยู่ติดกับปุ่มเพื่อทริกเกอร์โบนัสความเร็ว — ลูกบอลพุ่งไปอีกฝั่ง!',
+      'step6-title':  '🏆 คนแรกที่ได้ 5 คะแนนชนะ',
+      'step6-desc':   'ทำคะแนนได้ 5 แต้มเพื่อชนะแมตช์ แถบ LED จะสว่างเป็นสีของคุณเพื่อแสดงชัยชนะ',
+      'about-title':  '// เกี่ยวกับ',
+      'about-p1':     'Pong 1D นำเกม Pong คลาสสิกมาสร้างสรรค์ใหม่ในมิติเดียว — แถบ LED แทนที่หน้าจอ ผู้เล่นควบคุมแป้นตีตามแถบ ส่งลูกบอลแสงไปมาด้วยความเร็วที่เพิ่มขึ้น',
+      'about-p2':     'ออกแบบสำหรับงานอีเว้นท์ แฮกกาธอน และงาน Maker Fair รองรับผู้เล่น 2-4 คนพร้อมกัน เกมเป็น Open Source และสามารถประกอบได้จากชิ้นส่วนทั่วไป',
+      'about-p3':     'แสดงบน <a href="https://fauxdepart.com/?ds-gallery=pong1d" target="_blank" style="color:#fff">fauxdepart.com</a> — ดูแกลเลอรีและเอกสารโครงการฉบับเต็ม',
+      'specs-title':  '// สเปค',
+      'spec-players': 'ผู้เล่น',
+      'spec-display': 'จอแสดงผล',
+      'spec-controller':'ตัวควบคุม',
+      'spec-length':  'ความยาว',
+      'spec-input':   'ปุ่มควบคุม',
+      'spec-power':   'พลังงาน',
+      'spec-mode':    'โหมด',
+      'spec-oss':     'โอเพ่นซอร์ส',
+      'spec-contact': 'ติดต่อ',
+      'gallery-title':'// แกลเลอรีภาพ',
+      'gallery-4p':   'โหมด 4 ผู้เล่น',
+      'gallery-2p':   'โหมด 2 ผู้เล่น',
+      'contact-title':'// เล่นกับเรา',
+      'qr-scan':      'สแกนเพื่อแชร์',
+      'label-website':'// เว็บไซต์',
+      'label-whatsapp':'// วอทส์แอพ',
+      'label-gallery': '// แกลเลอรี',
+      'footer':       'PONG 1D — เกม LED โอเพ่นซอร์ส — alx.github.io/pong1D',
+      'lb-close':     '✕ ปิด',
+    },
+    EN: {
+      'how-to-play':  '// How to Play',
+      'step1-title':  '🕹️ Stand at your end',
+      'step1-desc':   'Each player takes a position at one end of the LED strip. Your button is right in front of you.',
+      'step2-title':  '💡 Watch the light ball',
+      'step2-desc':   'A white light travels along the strip from one player to the other — that\'s the ball.',
+      'step3-title':  '👆 Press when it reaches you',
+      'step3-desc':   'Hit your button exactly when the ball arrives at your end of the strip to return it.',
+      'step4-title':  '⏱️ Timing is everything',
+      'step4-desc':   'Press too early or too late and the opponent scores a point.',
+      'step5-title':  '⚡ Power-up — super speed',
+      'step5-desc':   'Press your button when the light is right next to it to trigger a speed bonus — the ball rockets to the other side!',
+      'step6-title':  '🏆 First to 5 wins',
+      'step6-desc':   'Score 5 points to win the match. The strip lights up in your color for a victory animation.',
+      'about-title':  '// About',
+      'about-p1':     'Pong 1D reinvents the classic Pong game in a single dimension — a strip of LEDs replaces the screen. Players control a physical paddle along the strip, sending a light "ball" back and forth at increasing speed.',
+      'about-p2':     'Built for events, hackathons, and maker fairs, Pong 1D supports 2 to 4 players simultaneously. The game is open-source and can be assembled with common components.',
+      'about-p3':     'Featured on <a href="https://fauxdepart.com/?ds-gallery=pong1d" target="_blank" style="color:#fff">fauxdepart.com</a> — see the full project gallery and documentation.',
+      'specs-title':  '// Specs',
+      'spec-players': 'Players',
+      'spec-display': 'Display',
+      'spec-controller':'Controller',
+      'spec-length':  'Length',
+      'spec-input':   'Input',
+      'spec-power':   'Power',
+      'spec-mode':    'Mode',
+      'spec-oss':     'Open Source',
+      'spec-contact': 'Contact',
+      'gallery-title':'// Photo Gallery',
+      'gallery-4p':   '4 players mode',
+      'gallery-2p':   '2 players mode',
+      'contact-title':'// Play with us',
+      'qr-scan':      'scan to share',
+      'label-website':'// WEBSITE',
+      'label-whatsapp':'// WHATSAPP',
+      'label-gallery': '// GALLERY',
+      'footer':       'PONG 1D — OPEN SOURCE LED GAME — alx.github.io/pong1D',
+      'lb-close':     '✕ CLOSE',
+    },
+    ES: {
+      'how-to-play':  '// Cómo Jugar',
+      'step1-title':  '🕹️ Colócate en tu extremo',
+      'step1-desc':   'Cada jugador se coloca en un extremo de la tira LED. Tu botón está justo frente a ti.',
+      'step2-title':  '💡 Observa la bola de luz',
+      'step2-desc':   'Una luz blanca viaja por la tira de un jugador al otro — esa es la bola.',
+      'step3-title':  '👆 Pulsa cuando llegue a ti',
+      'step3-desc':   'Pulsa tu botón exactamente cuando la bola llegue a tu extremo para devolverla.',
+      'step4-title':  '⏱️ El timing lo es todo',
+      'step4-desc':   'Pulsa demasiado pronto o tarde y el oponente anota un punto.',
+      'step5-title':  '⚡ Power-up — súper velocidad',
+      'step5-desc':   'Pulsa tu botón cuando la luz está justo al lado para activar un bonus de velocidad — ¡la bola sale disparada!',
+      'step6-title':  '🏆 Primero en llegar a 5 gana',
+      'step6-desc':   'Consigue 5 puntos para ganar el partido. La tira se ilumina con tu color en la animación de victoria.',
+      'about-title':  '// Acerca de',
+      'about-p1':     'Pong 1D reinventa el clásico Pong en una sola dimensión — una tira de LEDs reemplaza la pantalla. Los jugadores controlan una paleta física a lo largo de la tira, enviando una "bola" de luz de un lado al otro a velocidad creciente.',
+      'about-p2':     'Diseñado para eventos, hackathons y ferias maker, Pong 1D soporta 2 a 4 jugadores simultáneamente. El juego es open-source y puede ensamblarse con componentes comunes.',
+      'about-p3':     'Presentado en <a href="https://fauxdepart.com/?ds-gallery=pong1d" target="_blank" style="color:#fff">fauxdepart.com</a> — ver la galería completa del proyecto.',
+      'specs-title':  '// Características',
+      'spec-players': 'Jugadores',
+      'spec-display': 'Pantalla',
+      'spec-controller':'Controlador',
+      'spec-length':  'Longitud',
+      'spec-input':   'Entrada',
+      'spec-power':   'Alimentación',
+      'spec-mode':    'Modo',
+      'spec-oss':     'Código Abierto',
+      'spec-contact': 'Contacto',
+      'gallery-title':'// Galería de Fotos',
+      'gallery-4p':   'Modo 4 jugadores',
+      'gallery-2p':   'Modo 2 jugadores',
+      'contact-title':'// Juega con nosotros',
+      'qr-scan':      'escanear para compartir',
+      'label-website':'// SITIO WEB',
+      'label-whatsapp':'// WHATSAPP',
+      'label-gallery': '// GALERÍA',
+      'footer':       'PONG 1D — JUEGO LED DE CÓDIGO ABIERTO — alx.github.io/pong1D',
+      'lb-close':     '✕ CERRAR',
+    },
+    FR: {
+      'how-to-play':  '// Comment Jouer',
+      'step1-title':  '🕹️ Positionnez-vous à votre bout',
+      'step1-desc':   'Chaque joueur se place à une extrémité du ruban LED. Votre bouton est juste devant vous.',
+      'step2-title':  '💡 Regardez la balle lumineuse',
+      'step2-desc':   'Une lumière blanche se déplace le long du ruban d\'un joueur à l\'autre — c\'est la balle.',
+      'step3-title':  '👆 Appuyez quand elle arrive',
+      'step3-desc':   'Appuyez sur votre bouton exactement quand la balle arrive à votre bout pour la renvoyer.',
+      'step4-title':  '⏱️ Le timing est tout',
+      'step4-desc':   'Appuyez trop tôt ou trop tard et l\'adversaire marque un point.',
+      'step5-title':  '⚡ Power-up — vitesse maximale',
+      'step5-desc':   'Appuyez quand la lumière est tout contre votre bouton pour déclencher un bonus de vitesse — la balle fonce !',
+      'step6-title':  '🏆 Premier à 5 gagne',
+      'step6-desc':   'Marquez 5 points pour gagner le match. Le ruban s\'illumine dans votre couleur pour l\'animation de victoire.',
+      'about-title':  '// À Propos',
+      'about-p1':     'Pong 1D réinvente le jeu Pong classique en une seule dimension — un ruban de LEDs remplace l\'écran. Les joueurs contrôlent une raquette physique le long du ruban, envoyant une "balle" lumineuse à vitesse croissante.',
+      'about-p2':     'Conçu pour les événements, hackathons et maker fairs, Pong 1D supporte 2 à 4 joueurs simultanément. Le jeu est open-source et peut être assemblé avec des composants courants.',
+      'about-p3':     'Présenté sur <a href="https://fauxdepart.com/?ds-gallery=pong1d" target="_blank" style="color:#fff">fauxdepart.com</a> — voir la galerie complète du projet et la documentation.',
+      'specs-title':  '// Caractéristiques',
+      'spec-players': 'Joueurs',
+      'spec-display': 'Affichage',
+      'spec-controller':'Contrôleur',
+      'spec-length':  'Longueur',
+      'spec-input':   'Entrée',
+      'spec-power':   'Alimentation',
+      'spec-mode':    'Mode',
+      'spec-oss':     'Open Source',
+      'spec-contact': 'Contact',
+      'gallery-title':'// Galerie Photos',
+      'gallery-4p':   'Mode 4 joueurs',
+      'gallery-2p':   'Mode 2 joueurs',
+      'contact-title':'// Jouez avec nous',
+      'qr-scan':      'scanner pour partager',
+      'label-website':'// SITE WEB',
+      'label-whatsapp':'// WHATSAPP',
+      'label-gallery': '// GALERIE',
+      'footer':       'PONG 1D — JEU LED OPEN SOURCE — alx.github.io/pong1D',
+      'lb-close':     '✕ FERMER',
+    }
+  };
+
+  let currentLang = 'TH';
+
+  function setLang(lang) {
+    currentLang = lang;
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    document.documentElement.lang = lang.toLowerCase();
+  }
+
+  /* ===== LIGHTBOX ===== */
   const images = Array.from(document.querySelectorAll('.gallery-item'));
   const lightbox = document.getElementById('lightbox');
   const lbImg = document.getElementById('lbImg');
@@ -661,6 +851,5 @@
     if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
   });
 </script>
-<script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
 </body>
 </html>
