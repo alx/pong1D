@@ -24,6 +24,10 @@
     font-size: 3em;
   }
 
+  body.lang-th {
+    font-size: 9em;
+  }
+
   /* LANG SELECTOR */
   .lang-selector {
     position: fixed;
@@ -863,6 +867,7 @@
   };
 
   let currentLang = 'TH';
+  document.body.classList.add('lang-th');
 
   function setLang(lang) {
     currentLang = lang;
@@ -875,6 +880,7 @@
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
     document.documentElement.lang = lang.toLowerCase();
+    document.body.classList.toggle('lang-th', lang === 'TH');
   }
 
   /* ===== LIGHTBOX ===== */
