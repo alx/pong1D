@@ -96,6 +96,76 @@
   .btn.primary { background: #fff; color: #000; }
   .btn.primary:hover { background: transparent; color: #fff; }
 
+  /* HOW TO PLAY */
+  .rules {
+    max-width: 860px;
+    margin: 60px auto 0;
+    padding: 0 24px;
+  }
+
+  .rules h2 {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+  }
+
+  .rules-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .rules-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  .rules-step:last-child { border-bottom: none; }
+
+  .step-num {
+    font-size: 0.55rem;
+    color: #555;
+    min-width: 28px;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .step-body {
+    flex: 1;
+  }
+
+  .step-title {
+    font-size: 0.5rem;
+    color: #fff;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .step-desc {
+    font-size: 0.42rem;
+    color: #888;
+    line-height: 2;
+  }
+
+  .rules-tip {
+    margin-top: 24px;
+    padding: 16px;
+    border: 1px solid #2a2a2a;
+    background: #0d0d0d;
+    font-size: 0.42rem;
+    color: #666;
+    line-height: 2;
+    letter-spacing: 0.05em;
+  }
+  .rules-tip strong { color: #aaa; }
+
   /* ABOUT */
   .about {
     max-width: 860px;
@@ -334,6 +404,62 @@
   <div class="cta-buttons">
     <a href="pancarte.html" class="btn primary">🖨 Print Sign A4</a>
     <a href="https://fauxdepart.com/?ds-gallery=pong1d" target="_blank" class="btn">📸 Full Gallery</a>
+  </div>
+</div>
+
+<!-- HOW TO PLAY -->
+<div class="rules">
+  <h2>// How to Play</h2>
+  <div class="rules-steps">
+
+    <div class="rules-step">
+      <span class="step-num">01</span>
+      <div class="step-body">
+        <span class="step-title">🕹️ Stand at your end</span>
+        <span class="step-desc">Each player takes a position at one end of the LED strip. Your button is right in front of you.</span>
+      </div>
+    </div>
+
+    <div class="rules-step">
+      <span class="step-num">02</span>
+      <div class="step-body">
+        <span class="step-title">💡 Watch the light ball</span>
+        <span class="step-desc">A white light travels along the strip from one player to the other — that's the ball.</span>
+      </div>
+    </div>
+
+    <div class="rules-step">
+      <span class="step-num">03</span>
+      <div class="step-body">
+        <span class="step-title">👆 Press when it reaches you</span>
+        <span class="step-desc">Hit your button exactly when the ball arrives at your end of the strip to return it.</span>
+      </div>
+    </div>
+
+    <div class="rules-step">
+      <span class="step-num">04</span>
+      <div class="step-body">
+        <span class="step-title">⏱️ Timing is everything</span>
+        <span class="step-desc">Press too early or too late and the opponent scores a point.</span>
+      </div>
+    </div>
+
+    <div class="rules-step">
+      <span class="step-num">05</span>
+      <div class="step-body">
+        <span class="step-title">⚡ Power-up — super speed</span>
+        <span class="step-desc">Press your button when the light is right next to it to trigger a speed bonus — the ball rockets to the other side!</span>
+      </div>
+    </div>
+
+    <div class="rules-step">
+      <span class="step-num">06</span>
+      <div class="step-body">
+        <span class="step-title">🏆 First to 5 wins</span>
+        <span class="step-desc">Score 5 points to win the match. The strip lights up in your color for a victory animation.</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
