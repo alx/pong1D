@@ -129,16 +129,14 @@
 
   .hero-caption-sub {
     font-size: 0.75rem;
-    color: #fff;
+    color: #cccccc;
     letter-spacing: 0.12em;
-    opacity: 0.9;
   }
 
   .hero-caption-specs {
     font-size: 0.6rem;
-    color: #fff;
+    color: #cccccc;
     letter-spacing: 0.15em;
-    opacity: 0.75;
   }
 
   /* HERO */
@@ -205,7 +203,7 @@
   }
 
   .rules h2 {
-    font-size: 35px;
+    font-size: 24px;
     color: #ffffff;
     letter-spacing: 0.1em;
     border-bottom: 2px solid #ffffff;
@@ -231,7 +229,7 @@
   .rules-step:last-child { border-bottom: none; }
 
   .step-num {
-    font-size: 22px;
+    font-size: 20px;
     color: #cccccc;
     min-width: 48px;
     padding-top: 3px;
@@ -241,7 +239,7 @@
   .step-body { flex: 1; }
 
   .step-title {
-    font-size: 35px;
+    font-size: 24px;
     color: #ffffff;
     letter-spacing: 0.06em;
     margin-bottom: 10px;
@@ -250,35 +248,34 @@
   }
 
   .step-desc {
-    font-size: 22px;
+    font-size: 20px;
     color: #cccccc;
     line-height: 2.2;
   }
 
-  /* ABOUT */
-  .about {
-    max-width: 860px;
-    margin: 60px auto;
-    padding: 0 24px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start;
+  /* ABOUT & SPEC SECTIONS */
+  .about-section, .spec-section {
+    padding: 60px 20px;
+    border-top: 2px solid #222;
+    background: #0a0a0a;
   }
-  @media(max-width:640px){ .about { grid-template-columns: 1fr; } }
 
-  .about h2 {
-    font-size: 35px;
-    color: #ffffff;
-    letter-spacing: 0.1em;
+  .about-section .section-title,
+  .spec-section .section-title {
+    text-align: left;
+    max-width: 1200px;
+    margin: 0 auto 32px;
     border-bottom: 2px solid #ffffff;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
+    padding-bottom: 12px;
   }
 
-  .about p {
-    font-size: 22px;
+  .about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .about-content p {
+    font-size: 20px;
     color: #cccccc;
     line-height: 2;
     margin-bottom: 14px;
@@ -286,8 +283,10 @@
 
   .specs-list {
     list-style: none;
-    font-size: 22px;
+    font-size: 20px;
     color: #cccccc;
+    max-width: 1200px;
+    margin: 0 auto;
   }
   .specs-list li {
     padding: 8px 0;
@@ -308,7 +307,7 @@
 
   .section-title {
     text-align: center;
-    font-size: 35px;
+    font-size: 24px;
     letter-spacing: 0.15em;
     margin-bottom: 40px;
     color: #ffffff;
@@ -420,7 +419,7 @@
   }
 
   .contact h2 {
-    font-size: 35px;
+    font-size: 24px;
     color: #ffffff;
     margin-bottom: 32px;
     letter-spacing: 0.1em;
@@ -428,22 +427,23 @@
 
   .contact-grid {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 32px;
-    flex-wrap: wrap;
     margin-bottom: 40px;
   }
 
   .contact-item {
-    font-size: 22px;
+    font-size: 20px;
     color: #cccccc;
     text-align: center;
+    width: 100%;
   }
   .contact-item .label {
     display: block;
     color: #cccccc;
     margin-bottom: 8px;
-    font-size: 18px;
+    font-size: 20px;
     letter-spacing: 0.15em;
   }
   .contact-item a { color: #ffffff; text-decoration: none; }
@@ -465,7 +465,7 @@
     image-rendering: pixelated;
   }
   .qr-area p {
-    font-size: 18px;
+    font-size: 20px;
     color: #cccccc;
     letter-spacing: 0.1em;
   }
@@ -475,7 +475,7 @@
     text-align: center;
     padding: 20px;
     font-size: 0.5rem;
-    color: #333;
+    color: #cccccc;
     border-top: 1px solid #1a1a1a;
     letter-spacing: 0.1em;
   }
@@ -576,30 +576,6 @@
   </div>
 </div>
 
-<!-- ABOUT -->
-<div class="about">
-  <div>
-    <h2 data-i18n="about-title">// เกี่ยวกับ</h2>
-    <p data-i18n="about-p1">Pong 1D นำเกม Pong คลาสสิกมาสร้างสรรค์ใหม่ในมิติเดียว — แถบ LED แทนที่หน้าจอ ผู้เล่นควบคุมแป้นตีตามแถบ ส่งลูกบอลแสงไปมาด้วยความเร็วที่เพิ่มขึ้น</p>
-    <p data-i18n="about-p2">ออกแบบสำหรับงานอีเว้นท์ แฮกกาธอน และงาน Maker Fair รองรับผู้เล่น 2-4 คนพร้อมกัน เกมเป็น Open Source และสามารถประกอบได้จากชิ้นส่วนทั่วไป</p>
-    <p data-i18n="about-p3">แสดงบน <a href="https://fauxdepart.com/?ds-gallery=pong1d" target="_blank" style="color:#fff">fauxdepart.com</a> — ดูแกลเลอรีและเอกสารโครงการฉบับเต็ม</p>
-  </div>
-  <div>
-    <h2 data-i18n="specs-title">// สเปค</h2>
-    <ul class="specs-list">
-      <li><span data-i18n="spec-players">ผู้เล่น</span><span>2 — 4</span></li>
-      <li><span data-i18n="spec-display">จอแสดงผล</span><span>LED Strip (WS2812B)</span></li>
-      <li><span data-i18n="spec-controller">ตัวควบคุม</span><span>Arduino / ESP32</span></li>
-      <li><span data-i18n="spec-length">ความยาว</span><span>1 — 3 meters</span></li>
-      <li><span data-i18n="spec-input">ปุ่มควบคุม</span><span>Push buttons / analog</span></li>
-      <li><span data-i18n="spec-power">พลังงาน</span><span>5V USB / DC</span></li>
-      <li><span data-i18n="spec-mode">โหมด</span><span>2P / 4P / Solo</span></li>
-      <li><span data-i18n="spec-oss">โอเพ่นซอร์ส</span><span>Yes ✓</span></li>
-      <li><span data-i18n="spec-contact">ติดต่อ</span><span>+66 811 640 400</span></li>
-    </ul>
-  </div>
-</div>
-
 <!-- GALLERY -->
 <div class="gallery-section">
   <p class="section-title" data-i18n="gallery-title">// แกลเลอรีภาพ</p>
@@ -669,6 +645,32 @@
       <div class="overlay"><span>P1030283</span></div>
     </div>
   </div>
+</div>
+
+<!-- ABOUT -->
+<div class="about-section">
+  <p class="section-title" data-i18n="about-title">// เกี่ยวกับ</p>
+  <div class="about-content">
+    <p data-i18n="about-p1">Pong 1D นำเกม Pong คลาสสิกมาสร้างสรรค์ใหม่ในมิติเดียว — แถบ LED แทนที่หน้าจอ ผู้เล่นควบคุมแป้นตีตามแถบ ส่งลูกบอลแสงไปมาด้วยความเร็วที่เพิ่มขึ้น</p>
+    <p data-i18n="about-p2">ออกแบบสำหรับงานอีเว้นท์ แฮกกาธอน และงาน Maker Fair รองรับผู้เล่น 2-4 คนพร้อมกัน เกมเป็น Open Source และสามารถประกอบได้จากชิ้นส่วนทั่วไป</p>
+    <p data-i18n="about-p3">แสดงบน <a href="https://fauxdepart.com/?ds-gallery=pong1d" target="_blank" style="color:#fff">fauxdepart.com</a> — ดูแกลเลอรีและเอกสารโครงการฉบับเต็ม</p>
+  </div>
+</div>
+
+<!-- SPEC -->
+<div class="spec-section">
+  <p class="section-title" data-i18n="specs-title">// สเปค</p>
+  <ul class="specs-list">
+    <li><span data-i18n="spec-players">ผู้เล่น</span><span>2 — 4</span></li>
+    <li><span data-i18n="spec-display">จอแสดงผล</span><span>LED Strip (WS2812B)</span></li>
+    <li><span data-i18n="spec-controller">ตัวควบคุม</span><span>Arduino / ESP32</span></li>
+    <li><span data-i18n="spec-length">ความยาว</span><span>1 — 3 meters</span></li>
+    <li><span data-i18n="spec-input">ปุ่มควบคุม</span><span>Push buttons / analog</span></li>
+    <li><span data-i18n="spec-power">พลังงาน</span><span>5V USB / DC</span></li>
+    <li><span data-i18n="spec-mode">โหมด</span><span>2P / 4P / Solo</span></li>
+    <li><span data-i18n="spec-oss">โอเพ่นซอร์ส</span><span>Yes ✓</span></li>
+    <li><span data-i18n="spec-contact">ติดต่อ</span><span>+66 811 640 400</span></li>
+  </ul>
 </div>
 
 <!-- CONTACT -->
